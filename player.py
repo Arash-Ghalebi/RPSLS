@@ -2,7 +2,7 @@ class Player:
 
     gestures  = ['Rock', 'Scissors', 'Paper', 'Lizard', 'Spock']
 
-    def __init__(self, name, gesture):
+    def __init__(self, name, gesture = None):
         self.name = name
         self.gesture = gesture
 
