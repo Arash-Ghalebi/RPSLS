@@ -9,6 +9,7 @@ if numPlayers == 1:
     while player1_counter < 2 or player2_counter < 2:
         print("1 for Rock, 2 for Scissors, 3 for Paper, 4 for Lizard, 5 for Spock")
         gesture_inp = int(input("Choose your gesture:"))
+        
 
 if numPlayers == 2:
     pass
