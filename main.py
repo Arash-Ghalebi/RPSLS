@@ -1,5 +1,6 @@
 from player import Player
 import random
+import getpass
 print("----RPSLS RULES----")
 print("For rock: rock beats lizards, rock beats scissor. \nFor scissors: scissors beats paper, scissors beats lizard. \nFor paper: paper beats rock, paper beats Spock. \nFor lizard: lizard beats Spock, lizard beats paper. \nFor Spock: Spock beats scissors, Spock beats rock\n\n")
 
@@ -7,7 +8,7 @@ numPlayers = int(input("How many players will be playing? 1 or 2?"))
 player1_counter = 0
 player2_counter = 0
 player_1 =  Player("playerone")
-player_2= Player("playertwo")
+player_2= Player("playertwo",numPlayers)
 
 
 if numPlayers == 1:
@@ -36,7 +37,7 @@ if numPlayers == 1:
 if numPlayers == 2:
     while player1_counter < 2 and player2_counter < 2:
         print("1 for Rock, 2 for Scissors, 3 for Paper, 4 for Lizard, 5 for Spock")
-        gesture_inp = int(input("Player one choose your gesture:"))-1
+        gesture_inp = int(getpass.getpass(prompt = "Player one choose your gesture:"))-1
         player_1.gesture = gesture_inp
         gesture_inp = int(input("Player two choose your gesture:"))-1
         player_2.gesture = gesture_inp

@@ -1,4 +1,4 @@
 from player import Player
-class Human:
-    def __init__(self):
-        pass
+class Human(Player):
+    def __init__(self, name):
+        
