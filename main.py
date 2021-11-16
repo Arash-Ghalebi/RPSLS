@@ -1,3 +1,5 @@
+from ai import Ai
+from human import Human
 from player import Player
 import random
 import getpass
@@ -7,57 +9,51 @@ print("For rock: rock beats lizards, rock beats scissor. \nFor scissors: scissor
 numPlayers = int(input("How many players will be playing? 1 or 2?"))
 player1_counter = 0
 player2_counter = 0
-player_1 =  Player("playerone")
-player_2= Player("playertwo",numPlayers)
-
-
+player_1 =  Human(input("Input Player 1 name here: "))
 if numPlayers == 1:
+    player_2 = Ai("Computer")
     while player1_counter < 2 and player2_counter < 2:
         print("1 for Rock, 2 for Scissors, 3 for Paper, 4 for Lizard, 5 for Spock")
-        gesture_inp = int(input("Choose your gesture:"))-1
-        player_1.gesture = gesture_inp
-        player_2.gesture = random.randint(0,4)
-        print(f'Player ones choice is: {player_1.choose_gesture()}')
-        print(f'Player twos choice is: {player_2.choose_gesture()}')
-        if player_1.gesture == player_2.gesture:
+        gesture1 = player_1.choose_gesture()
+        gesture2 = player_2.choose_gesture()
+        print(f'{player_1.name}s choice is: {gesture1}')
+        print(f'Player twos choice is: {gesture2}')
+        if gesture1 == gesture2:
             continue
-        elif player_1.gesture == 0 and (player_2.gesture == 1 or player_2.gesture ==3 ):
+        elif gesture1 == 'Rock' and (gesture2 == 'Scissors' or gesture2 == 'Lizard' ):
             player1_counter += 1
-        elif player_1.gesture == 1 and (player_2.gesture ==2 or player_2.gesture ==3):
+        elif gesture1 == 'Scissors' and (gesture2 == 'Paper' or gesture2 == 'Lizard'):
             player1_counter += 1
-        elif player_1.gesture == 2 and (player_2.gesture ==0 or player_2.gesture ==4):
+        elif gesture1 == 'Paper' and (gesture2 == 'Rock' or gesture2 == 'Spock'):
             player1_counter +=1 
-        elif player_1.gesture == 3 and (player_2.gesture ==4 or player_2.gesture ==2):
+        elif gesture1 == 'Lizard' and (gesture2 == 'Spock' or gesture2 == 'Paper'):
             player1_counter +=1
-        elif player_1.gesture == 4 and (player_2.gesture ==0 or player_2.gesture ==1):
+        elif gesture1 == 'Spock' and (gesture2 == 'Rock' or gesture2 == 'Scissors'):
             player1_counter +=1 
         else:
             player2_counter +=1
-
-if numPlayers == 2:
+else:
+    player_2 = Human(input("Input Player 2 name here: "))
     while player1_counter < 2 and player2_counter < 2:
         print("1 for Rock, 2 for Scissors, 3 for Paper, 4 for Lizard, 5 for Spock")
-        gesture_inp = int(getpass.getpass(prompt = "Player one choose your gesture:"))-1
-        player_1.gesture = gesture_inp
-        gesture_inp = int(input("Player two choose your gesture:"))-1
-        player_2.gesture = gesture_inp
-        print(f'Player ones choice is: {player_1.choose_gesture()}')
-        print(f'Player twos choice is: {player_2.choose_gesture()}')
-        if player_1.gesture == player_2.gesture:
+        gesture1 = player_1.choose_gesture()
+        gesture2 = player_2.choose_gesture()
+        print(f'{player_1.name}s choice is: {gesture1}')
+        print(f'{player_2.name}s choice is: {gesture2}')
+        if gesture1 == gesture2:
             continue
-        elif player_1.gesture == 0 and (player_2.gesture == 1 or player_2.gesture ==3 ):
+        elif gesture1 == 'Rock' and (gesture2 == 'Scissors' or gesture2 == 'Lizard' ):
             player1_counter += 1
-        elif player_1.gesture == 1 and (player_2.gesture ==2 or player_2.gesture ==3):
+        elif gesture1 == 'Scissors' and (gesture2 == 'Paper' or gesture2 == 'Lizard'):
             player1_counter += 1
-        elif player_1.gesture == 2 and (player_2.gesture ==0 or player_2.gesture ==4):
+        elif gesture1 == 'Paper' and (gesture2 == 'Rock' or gesture2 == 'Spock'):
             player1_counter +=1 
-        elif player_1.gesture == 3 and (player_2.gesture ==4 or player_2.gesture ==2):
+        elif gesture1 == 'Lizard' and (gesture2 == 'Spock' or gesture2 == 'Paper'):
             player1_counter +=1
-        elif player_1.gesture == 4 and (player_2.gesture ==0 or player_2.gesture ==1):
+        elif gesture1 == 'Spock' and (gesture2 == 'Rock' or gesture2 == 'Scissors'):
             player1_counter +=1 
         else:
             player2_counter +=1
-
     
 
 if player1_counter == 2:

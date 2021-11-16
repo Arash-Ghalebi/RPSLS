@@ -1,4 +1,8 @@
 from player import Player
-class Ai:
-    def __init__(self, name):
-        self.name = name
+import random
+
+class Ai(Player):
+
+    def choose_gesture(self):
+        gesture = random.randint(0,4)
+        return self.gestures[gesture]
