@@ -7,10 +7,15 @@ class Player:
 
     def choose_gesture(self):
         while True:
-            result = int(input(f"{self.name} - Please select a gesture: ")) - 1
-            # result = input(f" {self.name} Please select a gesture: ")
+            result = input(f"{self.name} - Please select a gesture: ")
+            if result.isdigit():
+                result = int(result) - 1
+            else:
+                print("Invalid input. Please input again")
+                continue
             if result < 0 or result > 4:
                 print("Invalid number. Please input again.")
                 continue
-            return self.gestures[result]
+            else:
+                return self.gestures[result]
         

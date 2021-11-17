@@ -45,6 +45,7 @@ else:
     print('\n')
     while player1_counter < 2 and player2_counter < 2:
         print("1 for Rock, 2 for Scissors, 3 for Paper, 4 for Lizard, 5 for Spock")
+        print("Player 1 input is hidden (no peaking Player 2!)")
         gesture1 = player_1.choose_gesture_secret()
         gesture2 = player_2.choose_gesture()
         print(f'{player_1.name}s choice is: {gesture1}')
