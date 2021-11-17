@@ -1,7 +1,7 @@
 from player import Player
 import getpass
 
-
+#inherents Player class functions and extends choose gesture method to hide player ones input from others 
 class Human(Player):
     def choose_gesture_secret(self):
         while True:
