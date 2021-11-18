@@ -1,10 +1,11 @@
+from gesture import Gesture
 class Player:
 
 #inits player class with included list and gets inherented to child classes Human and Ai 
 #providing name input
     def __init__(self, name = None):
         self.name = name
-        self.gestures  = ['Rock', 'Scissors', 'Paper', 'Lizard', 'Spock']
+        self.gestures  = Gesture.gesture_list()
 #method for gesture selection gets inherented to child classes but gets changed for specific use of class
     def choose_gesture(self):
         while True:
